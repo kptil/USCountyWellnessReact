@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Chart from './chart.js';
 
 class Baseline extends Component {
     state = {
@@ -41,19 +42,20 @@ class Baseline extends Component {
             <h1>Queries on Basic County stats</h1>
             <p>Things unemployment, education, birth rate, ect.</p>
             <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <strong>Post to Server:</strong>
-          </p>
-          <input
-            type="text"
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
-        
+            <form onSubmit={this.handleSubmit}>
+              <p>
+                <strong>Post to Server:</strong>
+              </p>
+              <input
+                type="text"
+                value={this.state.post}
+                onChange={e => this.setState({ post: e.target.value })}
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <p>{this.state.responseToPost}</p>
+
+            <Chart />
 
             </div>
         );
