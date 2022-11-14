@@ -4,6 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+const server = require('./server.js');
+const database = require('./database.js');
+const dbConfig = require('./config/databaseConfig.js');
+
+
+async function startConnection() {
+    console.log('Starting...');
+    try {
+        console.log('Initializing web server');
+        await database.initialize();
+    } catch (err) {
+        console.error(err);
+        process.exit(1);
+    }
+}
+
+startConnection();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
